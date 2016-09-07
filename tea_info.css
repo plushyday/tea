@@ -1,0 +1,330 @@
+
+.noinput{
+    display: none;
+}
+
+h2{
+    border: 1px solid black;
+    text-align: center;
+}
+span{
+    margin: 1%;
+    line-height: 1.6;
+}
+.item1_right_in_info{
+    position: relative;
+    width: 31%;
+    display: inline-block;
+    padding: 1%;
+    height: auto;
+    text-align: justify;
+    cursor: pointer;
+}
+.span_item2{
+    display: block;
+    height: 110px;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.first_line:first-letter{
+    
+}
+.details_right_in_info{
+    text-align: center;
+    width:100%;
+    font-size: 1.5em;
+}
+.headline{
+    text-align: center;
+}
+.one{
+    background-color: #d0d9d5;
+    margin-right: -0.5%;
+}
+.two{
+      background-color: #d0d9e6;
+}
+.three{
+   
+    background-color: #d0d9f8;
+    margin-left: -0.5%;
+}
+.four{
+  background-color: #d9d8d4;
+    margin-right: -0.5%;
+}
+.five{
+  
+    background-color: #d9d8e6;
+}
+.six{
+  
+    background-color: #d9d8f8;
+    margin-left: -0.5%;
+}
+.threeteas{
+    width: 75%;
+    display: inline-block;
+    position: relative;
+    right: -1%;
+}
+.threeteas:first-child{
+    background-color: #d0d9f8; 
+}
+.threeteas:last-child{
+    background-color: #d9d8f8; 
+}
+.inside_pic{
+    float: right;
+    margin-left: 2%;
+}
+.tooltip{
+    display: none;
+}
+
+.inside_pic:hover+.tooltip {
+    display: block;
+   background: rgba(0,0,0,0.7);
+   width: auto;
+   height: auto;
+    text-align: center;
+
+    position: absolute;
+    right: 0;
+    color: #fff;
+   font-size: 24px;
+   font-weight: 300;
+   line-height: 60px;
+   padding: 0 10px 0 10px;
+   }
+
+.captions{
+    margin: 0.5%;
+}
+#history:checked+img+div, 
+#what:checked+img+div, 
+#preparation:checked+img+div,
+#packaging:checked+img+div{
+    display: inline-block;
+}
+#history:checked+img+div~.sixteas, 
+#what:checked+img+div~.sixteas,
+#preparation:checked+img+div~.sixteas,
+#packaging:checked+img+div~.sixteas{
+    display: none;
+}
+#history:checked+img, 
+#what:checked+img,
+#preparation:checked+img,
+#packaging:checked+img{
+    display: inline-block;
+    position: absolute;
+    z-index: 6;
+    left: 2
+}
+#history+img, 
+#what+img,
+#preparation+img,
+#packaging+img{
+    display: none;
+    cursor: pointer;
+}
+#history+img+div, 
+#what+img+div,
+#preparation+img+div,
+#packaging+img+div{
+    position: relative;
+    width: 72.6%;
+    text-align:justify;
+    text-indent: 20px;
+        padding: 1%;
+    height: auto;
+    font-size: 1.1em;
+    display: none;
+    background: #e6e5e7;
+    border: 2px solid #c8c7bd;
+    font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+#black:checked+div+label .hidden,
+#green:checked+div+label .hidden,
+#white:checked+div+label .hidden,
+#yellow:checked+div+label .hidden,
+#oolong:checked+div+label .hidden,
+#puerh:checked+div+label .hidden{
+    display: block;
+}
+#black:checked+div+label div,
+#green:checked+div+label div,
+#white:checked+div+label div
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 7;
+    overflow: auto;
+    max-height: 700px;
+    width: 98%;
+    cursor: auto;
+-webkit-box-shadow: 0px 69px 93px -17px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 69px 93px -17px rgba(0,0,0,0.75);
+box-shadow: 0px 69px 93px -17px rgba(0,0,0,0.75);
+   animation: scale 150ms ease-out;
+   }
+#yellow:checked+div+label .item1_right_in_info,
+#oolong:checked+div+label .item1_right_in_info
+{
+    position: absolute;
+    top: -100%;
+    left: 0;
+    overflow: auto;
+    max-height: 700px;
+    z-index: 7;
+    width: 98%;
+    cursor: auto;
+-webkit-box-shadow: 0px 69px 93px -17px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 69px 93px -17px rgba(0,0,0,0.75);
+box-shadow: 0px 69px 93px -17px rgba(0,0,0,0.75);
+   animation: scale2 150ms ease-out;
+}
+#white:checked+div+label div{
+    left: 0.5%;
+}
+#puerh:checked+div+label div{
+     position: absolute;
+    top: -100%;
+    left: 0.5%;
+    z-index: 7;
+    overflow: auto;
+    max-height: 700px;
+    width: 98%;
+    cursor: auto;
+-webkit-box-shadow: 0px 69px 93px -17px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 69px 93px -17px rgba(0,0,0,0.75);
+box-shadow: 0px 69px 93px -17px rgba(0,0,0,0.75);
+   animation: scale2 150ms ease-out;
+}
+#black:checked+div,
+#green:checked+div,
+#white:checked+div,
+#yellow:checked+div,
+#oolong:checked+div,
+#puerh:checked+div{
+    display: block;
+    color: black;
+    animation: blink 5s linear infinite;
+}
+.back, .back2{
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 0 1% 0 1%;
+       font-size: 1.5em;
+    text-transform: uppercase;
+}
+.back{
+    right:100.5%;
+    top: 1%;
+}
+.back2{
+    right: 100.5%;
+    top:-99%;
+}
+
+#black:checked+div+label img,
+#green:checked+div+label img,
+#white:checked+div+label img,
+#yellow:checked+div+label img,
+#oolong:checked+div+label img,
+#puerh:checked+div+label img{
+    width: auto;
+    float: left;
+    margin-right: 1%;
+}
+#black:checked+div+label .details_right_in_info,
+#green:checked+div+label .details_right_in_info,
+#white:checked+div+label .details_right_in_info,
+#yellow:checked+div+label .details_right_in_info,
+#oolong:checked+div+label .details_right_in_info,
+#puerh:checked+div+label .details_right_in_info{
+    display: none;
+}
+#black:checked+div+label .span_item2,
+#green:checked+div+label .span_item2,
+#white:checked+div+label .span_item2,
+#yellow:checked+div+label .span_item2,
+#oolong:checked+div+label .span_item2,
+#puerh:checked+div+label .span_item2{
+    display: none;
+}
+@keyframes blink{
+0%{color: #000;}
+    50%{color: red;}
+100%{color: #000;}}
+@keyframes scale{
+    0%{
+        transform: scale(0, 0)
+    }
+    50%{transform: scale(0.5,0.5)}
+    100%{transform: scale(1,1)}
+}
+@keyframes scale2{
+    0%{
+        transform: scale(0, 0)
+    }
+    50%{transform: scale(0.5,0.5)}
+    100%{transform: scale(1,1)}
+}
+
+.hidden{
+    display: none;
+}
+/*
+.hidden .span_item:first-child{
+    display: block;
+    margin-top: -50px;
+}
+*/
+.tea_types{
+    display: none;
+}
+.tea_types img{
+    float: left;
+    margin-right: 1%;
+}
+.hangMugs{
+float: left;  
+    height: 100%;
+    margin: 0;
+    width: 23%;
+    margin-left:1%;
+    margin-top: 2.8%;
+    background: #d0d0d9;
+     z-index: 5;
+     }
+.hangMugs div{
+  list-style-type: none;  
+    font-size: 3.3em;
+    cursor: pointer;
+    z-index: 5;
+    text-align: center;
+    vertical-align: middle;
+     line-height: 3;
+}
+.hangMugs div{
+    margin-left: 0;
+   
+   
+}
+.hangMugs div:active{
+    position: relative;
+    top:1px;
+}
+.hangMugs div:hover{
+    background-color: aliceblue;
+}
+.hangMugs label{
+    cursor: pointer;
+}

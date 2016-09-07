@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <link rel=stylesheet href="teatime.css" type="text/css" />
+     <link rel=stylesheet href="teatime_media.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Ruthie' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript">
+        
+        function up(){
+            var value = document.getElementById("quantity").value;
+            document.getElementById("quantity").value=value*1+1;
+        }
+        
+        function down(){
+             var value = document.getElementById("quantity").value;
+             if(value*1-1>0){
+            document.getElementById("quantity").value=value*1-1;}
+        }
+        
+        function addtocart() {
+            
+            var Params = location.search.substring(1);
+        var goods = getCookie("goods");
+            if (goods!=""){
+               
+                
+                if(typeof goods === "undefined"){
+                    document.cookie = "goods=" + document.getElementById('quantity').value +"_"+ Params.split("=")[1];
+                   
+                   
+                   
+                }else{
+                    document.cookie = "goods="+goods + "," + document.getElementById('quantity').value +"_"+ Params.split("=")[1];
+                }
+            }
+            else if(goods==""){
+                document.cookie = "goods="+goods + document.getElementById('quantity').value +"_"+ Params.split("=")[1];
+            }
+            window.location.href = "tea_shop.html#items";
+                }
+        
+        function getCookie(name) {
+          var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+          ));
+          return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+        
+        function clearcart(){document.cookie = "goods=;";}
+        
+    </script>
+    
+            </head> 
+    
+<body class="blog">
+     <input type="checkbox" id="tea_label">
+    <label for="tea_label"></label>
+    <div class="nav">
+        <div class="logo logomain">
+            <a href="teatime.html" title="TeaTime">
+                <div class="t">Tea</div>
+                <div class="time">time</div>
+            </a>
+        </div>
+        
+        <div class="buttonblock">
+            <a href="tea_info.html" class="myButton" title="Info">Tea info</a><!--
+            --><a href="tea_blog.html" class="myButton" title="Tea blog">Tea blog</a><!--
+             --><a href="tea_shop.html" class="myButton" title="Our tea">Our tea</a><!--
+             --><a href="contact_us.html" class="myButton" title="Contact us">Contact us</a><!--
+             --><a href="cart.html" class="myButton active" title="Cart" id="cartbtn">Cart</a>
+        </div>
+        
+        <div style="clear:both;"></div>
+    </div>
+
+    <div class="inner_blog store_item">
+        <div class="left_blog">                        
+        </div>
+        
+        <div class="left_blog">
+                    <p class="captions_blog"></p>
+<p>Choose required quantity and add to cart: </p>
+            <input  id = "quantity" type="number" max="10" min="1" value="1" >
+            <div style="width:5px; display:inline-block;"></div>
+            <div class="spinner" id="up" onclick="up()" type="button" style="visibility:hidden; background: url(up.png);"></div>
+            <div style="width:5px; display:inline-block;"></div>
+            <div class="spinner" id="down" onclick="down()" type="button" style="visibility:hidden; background: url(down.png); margin-right:20%;"></div>
+
+            
+            <!--<div class="blog_info">-->
+                <input class="cart" type="button" onclick = "addtocart()" value="Add to Cart" style = "display:inline-block"/>
+            <!--</div>-->
+           
+            
+        </div>
+        
+</div>
+        
+        <script>
+window.onload=function param()
+{
+var Params = location.search.substring(1); //location.search возвращает подстроку из url вида "?par=blabla", substring(1) возвращает подстроку, начиная с первого элемента, т.е. без знака вопроса. Делит через амперсант на подстроки, если передано несколько параметров.
+console.log(Params);
+    console.log("|"+Params.split("=")[1]+"|");
+    switch(Params.split("=")[1])
+   {
+       case "darjeeling":
+           document.getElementsByClassName('left_blog')[0].innerHTML = "<div class=\"attr\">Darjeeling Black Tea</div><img alt=\"Darjeeling Tea\" src=\"Darjeeling%20Black%20Tea.png\"> <div  class=\"blog_content\">Commonly known as the \"Champagne of Tea,\" the region of Darjeeling produces what is often considered to be the world's best black tea.<br> Darjeeling black teas vary substantially by when they are harvested. (Each of the harvests are known as a \"flush\" and the spring harvest / first flush is the most famous and the \"greenest\" of the flushes. Here's more on tea flushes in Darjeeling.) However, generally speaking, Darjeeling black teas taste delicate, fruity, floral and light, and are best drunk without any milk or sugar added.</div>";
+                      
+           break;
+        case "keemun":
+           document.getElementsByClassName('left_blog')[0].innerHTML = "<img alt=\"Keemun tea\" src=\"keemun.png\"><div class=\"attr\">Keemun black tea</div><div  class=\"blog_content\">Keemun black tea (or Qimen hong cha) is a black tea from the Anhui Province of eastern China. High quality Keemun teas are a connoisseur favorite, and are noted for their distinctive aromas and flavors, which are often described as smooth, winey (wine-like), fruity, floral, piney and tobacco-like.<br> Although Keemun needs no additives to be enjoyed, it's also good with milk and / or sugar. For an unusual twist on Keemun black tea, try this \"Keemun-Kantaloupe Kooler\" from tea chef Robert Wemischner. </div>";
+
+           break;
+           case "assam":
+           document.getElementsByClassName('left_blog')[0].innerHTML = "<img alt=\"Assam tea\" src=\"assam.png\"><div class=\"attr\">Assam black tea</div><div  class=\"blog_content\">Assam black tea tends to be bold, malty and brisk. Teas from Assam are often used as the base for English Breakfast Tea, Irish Breakfast Tea and other black tea blends. A bit of sugar and a splash of milk are commonly added to pure Assamese teas and Assam-based tea blends. <br> Although most Assam black tea is CTC tea or lower grades of tea used in teabags, it is possible to find high quality, loose leaf tea from Assam.</div>";
+
+           break;
+           case "yunnan":
+           document.getElementsByClassName('left_blog')[0].innerHTML = "<img alt=\"Yunnan tea\" src=\"yunnan.png\"><div class=\"attr\">Yunnan black tea</div><div  class=\"blog_content\">As the name suggests, Yunnan black tea hails from Yunnan -- a province in China better known for its pu-erh tea. Some Yunnan black teas are partially fermented, meaning that they straddle the line between black tea and pu-erh. Their flavors are typically chocolaty, dark, malty and nuanced. Sometimes, they have notes of spice and / or a lasting sweetness in the finish. People who love chocolate tend to love Keemun black tea.<br>Like other teas from China, Yunnan black tea may also be referred to as \"hong cha\" or red tea.</div>";
+
+           break;
+          case "teapot":
+           document.getElementsByClassName('left_blog')[0].innerHTML = "<img alt=\"Special teapot\" src=\"teapod.png\"><div class=\"attr\">Special iron teapot</div><div  class=\"blog_content\"><ul><li>Diameter:6.69in Hight:19.68in Weight:3.61lb</li><li>Finished with a porcelain enamel interior</li><li>Iron pot handle with fine linen, prevent burns.</li><li>When the water boiling, please don't direct contact with the lid with the hand, to avoid being scalded.</li><li>Iron Teapot after heating the temperature of the bottom of the pot will be very high, do not placed directly on the table, so as to avoid burning the desktop.</li></ul></div>";
+           break;
+        case "cup":
+           document.getElementsByClassName('left_blog')[0].innerHTML = "<img src=\"blackcup.png\" alt=\"Special black cup\"> <div class=\"attr\">Special clay cup</div><div  class=\"blog_content\"><ul><li>China Teaism - Yixing Zi Sha Clay Fragrance/aroma Cups</li><li>Specifications:3*4.5 cm(W*H)</li><li>Capacity:about 25 ml</li><li>Clay: duan ni</li><li>Package: 2*Cups</li></ul></div>";
+
+           break;
+           case "tray":
+           document.getElementsByClassName('left_blog')[0].innerHTML = "<img src=\"wood%20tray.png\" alt=\"Wood black tray\"> <div class=\"attr\">Special chinese bamboo tray</div><div  class=\"blog_content\"><ul><li>Natural bamboo tea tray</li><li>Size in Inches (L x W x H): 16.5 x 11 x 2.25</li><li>A must for tea service</li></ul></div>";
+                      
+
+           break;
+           case "whisk":
+           document.getElementsByClassName('left_blog')[0].innerHTML = "<img src=\"tea%20whisk.png\" alt=\"Tea whisk\"> <div class=\"attr\">Whisk</div><div  class=\"blog_content\">HAND CARVED FROM A SINGE PIECE OF BAMBOO!</div>";
+                    
+
+           break;
+          
+           
+   }
+    getcookies();
+}
+        
+function getcookies()
+{
+var goods = getCookie("goods");
+//    alert(goods);
+    var gdsqntty = goods.split(",").length;
+//    alert(gdsqntty);
+    if (goods!=""){
+    document.getElementById('cartbtn').style.visibility = "visible";
+    document.getElementById('cartbtn').innerHTML = "Cart \["+gdsqntty+"\]";
+    }
+   }
+function getCookie(name) {
+          var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+          ));
+          return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+        </script>
+        
+        
+        
+    </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+ <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <link rel=stylesheet href="teatime.css" type="text/css" />
+     <link rel=stylesheet href="teatime_media.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Ruthie' rel='stylesheet' type='text/css'>
+    
+    <script>
+        
+        function clearcart(){
+            // alert(getCookie("goods"));
+            document.cookie = "goods=;";
+            window.location.href = "teatime.html";
+                            }
+        
+        function checkout(){
+//            document.cookie = "goods=;";
+            window.location.href = "checkout.html";
+        }
+        
+         function getCookie(name) {
+          var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+          ));
+          return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+        
+    </script>
+    
+            </head> 
+    
+<body class="blog">
+     <input type="checkbox" id="tea_label">
+    <label for="tea_label"></label>
+    <div class="nav">
+        <div class="logo logomain">
+            <a href="teatime.html" title="TeaTime">
+                <div class="t">Tea</div>
+                <div class="time">time</div>
+            </a>
+        </div>
+        
+        <div class="buttonblock">
+            <a href="tea_info.html" class="myButton" title="Info">Tea info</a><!--
+            --><a href="tea_blog.html" class="myButton" title="Tea blog">Tea blog</a><!--
+             --><a href="tea_shop.html" class="myButton" title="Our tea">Our tea</a><!--
+             --><a href="contact_us.html" class="myButton" title="Contact us">Contact us</a><!--
+             --><a href="cart.html" class="myButton active" title="Cart" id="cartbtn">Cart</a>
+        </div>
+        
+        <div style="clear:both;"></div>
+    </div>
+    <div class="inner_blog">
+                        
+    </div>
+    <div class="inner_blog1">
+         <div id="total">
+            
+        </div>               
+    </div>
+        
+        
+        <script>
+window.onload=function getgoods()
+{
+    document.cookie = "total=;";
+var goods = getCookie("goods");
+
+    if(typeof goods === "undefined"){
+        document.getElementsByClassName('inner_blog')[0].innerHTML = "<div class=\"attr\">Your cart is empty right now!</div>";
+    }
+    var goods = goods.split(",");
+    
+    var curtotal;
+    for (var i=0;i<goods.length;i++)
+        {
+//            alert (goods[i].split('_')[0]+"|"+goods[i].split('_')[1])
+            var curinnerhtml = document.getElementsByClassName('inner_blog')[0].innerHTML;
+//            alert(curinnerhtml);
+        if(goods!=""){ 
+            switch(goods[i].split('_')[1])
+               {
+                   case "darjeeling":
+                       document.getElementsByClassName('inner_blog')[0].innerHTML = curinnerhtml + "<div class=\"cart_block\"><div class=\"attr\">Darjeeling Black Tea</div><img class=\"resize\" src=\"Darjeeling%20Black%20Tea.png\"><div class=\"product_label\" style=\"margin-left:40px; border-right:0px; background:#d3ead2;\"><p style=\"padding-left:60px\">"+goods[i].split('_')[0]+" items</p></div><div class=\"product_label\" style=\"border-left:0px; background:#FFC7AD;\"><p style=\"padding-left:65px\">Price:"+goods[i].split('_')[0]*7+"$</p></div></div>";
+                       curtotal = getCookie("total");
+//                       alert(curtotal);
+                       document.cookie = "total="+(goods[i].split('_')[0]*7+curtotal*1)
+                       break;
+                    case "keemun":
+                       document.getElementsByClassName('inner_blog')[0].innerHTML = curinnerhtml + "<div class=\"cart_block\"><div class=\"attr\">Keemun</div><img class=\"resize\" alt=\"Keemun tea\" src=\"keemun.png\"><div class=\"product_label\" style=\"margin-left:40px; border-right:0px; background:#d3ead2;\"><p style=\"padding-left:60px\">"+goods[i].split('_')[0]+" items</p></div><div class=\"product_label\" style=\"border-left:0px; background:#FFC7AD;\"><p style=\"padding-left:65px\">Price:"+goods[i].split('_')[0]*15+"$</p></div></div>";
+                       curtotal = getCookie("total");
+//                       alert(curtotal);
+                       document.cookie = "total="+(goods[i].split('_')[0]*15+curtotal*1)
+                       break;
+                    case "assam":
+                       document.getElementsByClassName('inner_blog')[0].innerHTML = curinnerhtml + "<div class=\"cart_block\"><div class=\"attr\">Assam</div><img class=\"resize\" alt=\"Assam tea\" src=\"assam.png\"><div class=\"product_label\" style=\"margin-left:40px; border-right:0px; background:#d3ead2;\"><p style=\"padding-left:60px\">"+goods[i].split('_')[0]+" items</p></div><div class=\"product_label\" style=\"border-left:0px; background:#FFC7AD;\"><p style=\"padding-left:65px\">Price:"+goods[i].split('_')[0]*17+"$</p></div></div>";
+                       curtotal = getCookie("total");
+//                       alert(curtotal);
+                       document.cookie = "total="+(goods[i].split('_')[0]*17+curtotal*1)
+                       break;
+                    case "yunnan":
+                       document.getElementsByClassName('inner_blog')[0].innerHTML = curinnerhtml + "<div class=\"cart_block\"><div class=\"attr\">Yunnan</div><img class=\"resize\" alt=\"Yunnan tea\" src=\"yunnan.png\"><div class=\"product_label\" style=\"margin-left:40px; border-right:0px; background:#d3ead2;\"><p style=\"padding-left:60px\">"+goods[i].split('_')[0]+" items</p></div><div class=\"product_label\" style=\"border-left:0px; background:#FFC7AD;\"><p style=\"padding-left:65px\">Price:"+goods[i].split('_')[0]*22+"$</p></div></div>";
+                       curtotal = getCookie("total");
+//                       alert(curtotal);
+                       document.cookie = "total="+(goods[i].split('_')[0]*22+curtotal*1)
+                       break;
+                       
+                       case "teapot":
+                       document.getElementsByClassName('inner_blog')[0].innerHTML = curinnerhtml + "<div class=\"cart_block\"><div class=\"attr\">Teapot</div><img class=\"resize\" alt=\"Special teapot\" src=\"teapod.png\"><div class=\"product_label\" style=\"margin-left:40px; border-right:0px; background:#d3ead2;\"><p style=\"padding-left:60px\">"+goods[i].split('_')[0]+" items</p></div><div class=\"product_label\" style=\"border-left:0px; background:#FFC7AD;\"><p style=\"padding-left:65px\">Price:"+goods[i].split('_')[0]*20+"$</p></div></div>";
+                       curtotal = getCookie("total");
+//                       alert(curtotal);
+                       document.cookie = "total="+(goods[i].split('_')[0]*20+curtotal*1)
+                       break;
+                    case "cup":
+                       document.getElementsByClassName('inner_blog')[0].innerHTML = curinnerhtml + "<div class=\"cart_block\"><div class=\"attr\">Tea cup</div><img class=\"resize\" src=\"blackcup.png\" alt=\"Special black cup\"><div class=\"product_label\" style=\"margin-left:40px; border-right:0px; background:#d3ead2;\"><p style=\"padding-left:60px\">"+goods[i].split('_')[0]+" items</p></div><div class=\"product_label\" style=\"border-left:0px; background:#FFC7AD;\"><p style=\"padding-left:65px\">Price:"+goods[i].split('_')[0]*10+"$</p></div></div>";
+                       curtotal = getCookie("total");
+//                       alert(curtotal);
+                       document.cookie = "total="+(goods[i].split('_')[0]*10+curtotal*1)
+                       break;
+                    case "tray":
+                       document.getElementsByClassName('inner_blog')[0].innerHTML = curinnerhtml + "<div class=\"cart_block\"><div class=\"attr\">Tray</div><img class=\"resize\" src=\"wood%20tray.png\" alt=\"Wood black tray\"><div class=\"product_label\" style=\"margin-left:40px; border-right:0px; background:#d3ead2;\"><p style=\"padding-left:60px\">"+goods[i].split('_')[0]+" items</p></div><div class=\"product_label\" style=\"border-left:0px; background:#FFC7AD;\"><p style=\"padding-left:65px\">Price:"+goods[i].split('_')[0]*17+"$</p></div></div>";
+                       curtotal = getCookie("total");
+//                       alert(curtotal);
+                       document.cookie = "total="+(goods[i].split('_')[0]*17+curtotal*1)
+                       break;
+                    case "whisk":
+                       document.getElementsByClassName('inner_blog')[0].innerHTML = curinnerhtml + "<div class=\"cart_block\"><div class=\"attr\">Tea whisk</div><img class=\"resize\" src=\"tea%20whisk.png\" alt=\"Tea whisk\"><div class=\"product_label\" style=\"margin-left:40px; border-right:0px; background:#d3ead2;\"><p style=\"padding-left:60px\">"+goods[i].split('_')[0]+" items</p></div><div class=\"product_label\" style=\"border-left:0px; background:#FFC7AD;\"><p style=\"padding-left:65px\">Price:"+goods[i].split('_')[0]*22+"$</p></div></div>";
+                       curtotal = getCookie("total");
+//                       alert(curtotal);
+                       document.cookie = "total="+(goods[i].split('_')[0]*22+curtotal*1)
+                       break;
+
+
+               }
+            
+            var curinnerhtml = document.getElementById("total").innerHTML;
+            document.getElementById("total").innerHTML = "<div class=\"cart_block\" style=\"background:#38555e\"><div class=\"total\">TOTAL: "+getCookie("total")+"$</div> <input  class=\"cart\" type=\"button\" onclick = \"clearcart()\" value=\"Clear Cart\" style = \"display:inline-block; bottom:1px;\"/><input  class=\"cart\" type=\"button\" onclick = \"checkout()\" value=\"Checkout\" style = \"display:inline-block; bottom:1px;\"/></div>";
+        }
+            else{
+                document.getElementsByClassName('inner_blog')[0].innerHTML = "<div class=\"attr\">Your cart is empty right now!</div>";
+            }
+        }
+    
+    
+    getcookies();
+    
+}
+function getcookies()
+{
+var goods = getCookie("goods");
+//    alert(goods);
+    var gdsqntty = goods.split(",").length;
+//    alert(gdsqntty);
+    if (goods!=""){
+    document.getElementById('cartbtn').innerHTML = "Cart \["+gdsqntty+"\]";
+    }
+    else{
+        document.getElementById('cartbtn').innerHTML = "Cart \[0]";
+    }
+   }
+        
+    function getCookie(name) {
+          var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+          ));
+          return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+        </script>
+        
+             
+    </body>
+</html>

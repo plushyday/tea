@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <link rel=stylesheet href="teatime.css" type="text/css" />
+     <link rel=stylesheet href="teatime_media.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Ruthie' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript">
+       
+        function checkout(){
+            document.cookie = "goods=;";
+            alert("Your order has been placed successfully!\n We will connect You soon.");
+            document.cookie = "total=;";
+            window.location.href = "teatime.html";
+        }
+        function cancel(){
+            document.cookie = "goods=;";
+            document.cookie = "total=;";
+            alert("Your order has been cancelled.");
+            window.location.href = "teatime.html";
+        }
+        
+    </script>
+    
+             </head> 
+    
+<body class="blog">
+     <input type="checkbox" id="tea_label">
+    <label for="tea_label"></label>
+    <div class="nav">
+        <div class="logo logomain">
+            <a href="teatime.html" title="TeaTime">
+                <div class="t">Tea</div>
+                <div class="time">time</div>
+            </a>
+        </div>
+        
+        <div class="buttonblock">
+            <a href="tea_info.html" class="myButton" title="Info">Tea info</a><!--
+            --><a href="tea_blog.html" class="myButton" title="Tea blog">Tea blog</a><!--
+             --><a href="tea_shop.html" class="myButton" title="Our tea">Our tea</a><!--
+             --><a href="contact_us.html" class="myButton" title="Contact us">Contact us</a><!--
+             --><a href="cart.html" class="myButton active" title="Cart" id="cartbtn">Cart</a>
+        </div>
+        
+        <div style="clear:both;"></div>
+    </div>
+    <div class="inner_blog">
+        <div class="left_blog attr">  
+            Now  you can accomplish your order
+        </div>
+        
+        
+        
+    </div>
+    <div class="inner_blog">
+        
+        <div class="left_blog">
+                    <div class="checkout">
+   <form >
+<div class="form_title"><h3>Enter you address</h3></div>
+<div class="form_title">Name</div>
+<input class="form_field" type="text" name="firstname" /><br />
+<div class="form_title">Email</div>
+       <input class="form_field" type="text" name="email" /><br />
+       <div class="form_title">Address</div>
+<input class="form_field" type="text" name="firstname" /><br />
+
+<div form-title>Some detailes: appropriate time of delivery, special requests</div><textarea class="form_field" rows="10" cols="45" name="text"></textarea><br />
+
+</form>
+    </div>
+            <input class="contact_us_submit"  type="button" onclick = "checkout()" value="Checkout" style = "display:block"/><br>
+            <input  class="contact_us_submit" type="button" onclick = "cancel()" value="Cancel" style = "display:block"/>
+
+        </div>
+    </div>
+        
+        <script>
+window.onload=function onload()
+{
+var curinnerhtml = document.getElementsByClassName('left_blog')[1].innerHTML;
+    document.getElementsByClassName('left_blog')[1].innerHTML = curinnerhtml+"<p> Total price:"+getCookie("total")+"$</p>";
+    getcookies();
+}
+function getCookie(name) {
+          var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+          ));
+          return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+            function getcookies()
+{
+var goods = getCookie("goods");
+//    alert(goods);
+    var gdsqntty = goods.split(",").length;
+//    alert(gdsqntty);
+    if (goods!=""){
+    document.getElementById('cartbtn').style.visibility = "visible";
+    document.getElementById('cartbtn').innerHTML = "Cart \["+gdsqntty+"\]";
+    }
+   }
+        </script>
+        
+    </body>
+</html>
